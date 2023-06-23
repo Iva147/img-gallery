@@ -1,0 +1,218 @@
+:root {
+    --text-color: white;
+    --purple: #2630ee;
+    --svg-size: 24px;
+    --radius: 5px;
+}
+
+body {
+    font-family: 'Play', sans-serif;
+    color: var(--text-color);
+}
+
+svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+button, input {
+    border-radius: var(--radius);
+}
+
+.search {
+    height: 30vh;
+    position: relative;
+}
+
+.search img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    position: absolute;
+    inset: 0;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.content p {
+    font-size: 1.5rem;
+}
+
+.search .search-box {
+    width: 30%;
+    height: 55px;
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.search-box input {
+    width: 100%;
+    height: 100%;
+    padding-left: calc(var(--svg-size) + 20px);
+    color: black;
+}
+
+.search-box svg {
+    width: var(--svg-size);
+    height: var(--svg-size);
+    fill: var(--purple);
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery .images {
+    gap: 15px;
+    columns: 5 340px;
+    margin-top: 30px;
+    max-width: 95%;
+}
+.images .card {
+    margin-bottom: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.images img {
+    width: 100%;
+}
+
+.card .details {
+    position: absolute;
+    width: 100%;
+    bottom: -100%;
+    left: 0;
+    padding: 20px 12px;
+    opacity: 0;
+    transition: bottom 0.1s ease-in-out, opacity .001s linear 0.1s;
+    background-image: linear-gradient(to top, rgba(0,0,0, .7), transparent);
+    display: flex;
+}
+
+.card:hover .details {
+    bottom: 0;
+    opacity: 1;
+}
+
+.photographer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.2rem;
+}
+
+.details .download,
+.details .photographer span:first-child {
+    padding: 2px;
+    background-color: var(--text-color);
+    color: var(--purple);
+    line-height: 0;
+    border-radius: var(--radius);
+}
+
+.details svg {
+    width: 12px;
+    height: 12px;
+    stroke: var(--purple);
+}
+
+.gallery .load-more {
+    margin: 20px;
+    padding: 10px 22px;
+    color: var(--text-color);
+    background-color: var(--purple);
+    border-radius: var(--radius);
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9;
+    background-color: rgba(0,0,0, 0.7);
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.lightbox.show {
+    display: flex;
+}
+
+.lightbox .wrapper {
+    color: #000000FF;
+    border-radius: var(--radius);
+    background-color: var(--text-color);
+    padding: 15px;
+}
+
+.lightbox .wrapper svg {
+    stroke: var(--purple);
+}
+
+.lightbox header {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.lightbox .btns {
+    display: flex;
+    gap: 15px;
+}
+
+.lightbox .preview-img {
+    margin: 0;
+    max-width: 55vw;
+    min-width: 40vw;
+    max-height: 60vh;
+    display: flex;
+    justify-content: center;
+}
+
+.lightbox .preview-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media screen and (max-width: 800px){
+    .search .search-box {
+        width: 80%;
+    }
+
+    .lightbox .preview-img {
+        max-width: 85vw;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .search .search-box {
+        width: 100%;
+    }
+}
